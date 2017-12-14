@@ -1,0 +1,53 @@
+<html data-cloud9-id="1"><head></head><body data-cloud9-id="3"><doctype data-cloud9-id="5" html="">
+
+    
+    
+    
+        <script data-cloud9-id="6" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+        </script>
+                <script data-cloud9-id="7">
+            $(document).ready(function() {
+                $("button").click(function() {
+                    //console.log("clicked");
+                    $.ajax({
+                        url: "https://data.cityofchicago.org/resource/9wsh-b774.json",
+                        success: function(result) {
+                            console.log(result);
+                            var output = "";
+                            
+                            $.each(result, function(index, value){
+                                //console.log(index + " " + value);
+                                
+                                // output += "<div class='output'>" + value.community_area_name + " " + value.building_type + "</div>";
+                                
+                                $("#results").append(value.community_area_name + " " + value.building_type + "</div>"); 
+                            
+                            });
+                            //$("#results").html(output);
+                        }
+                    })
+                });
+            });
+        </script>
+       
+        
+        <style data-cloud9-id="8">
+            .output{
+                color: red;
+            }
+        </style>
+    
+
+    
+
+        <div  id="div1">
+            <h2 >APIs</h2>
+        </div>
+
+        <button >Events</button>
+        
+        <div id="results" id="table">
+            
+        </div>
+    
+
