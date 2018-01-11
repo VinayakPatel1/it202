@@ -1,5 +1,19 @@
-<!DOCTYPE html>
-<html>
+
+    <div  id="div1">
+        <center>
+            <h1>
+                Chicago Police stations
+            </h2>
+        </center>
+    </div1>
+    
+    <div class = "col-md-12">
+        <center>
+            <p>
+                A list of all the police stations in chicago.    
+            </p>
+        </center>
+    </div>
     <head>
         <style>
             p, h1, #results {
@@ -19,140 +33,136 @@
                 border-radius: 5px; 
             }
         </style>
-    </head>
-    <body>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script>
-        var baseURL = 'https://data.cityofchicago.org/resource/9rg7-mz9y.json';
-        var filters = '?status=Open&zip=60618';
-        var url = baseURL + filters;
-        
-        console.log (url);
-        
-        $(
-            $.getJSON(url)
-                .done (function (data) {
-                    console.log(data);
-                    
-                    $.each(data, function(index, value){
-                       var html = "<div><h1>" + value.day + "</h1>" +
-                                    "<p>Status: " + value.park + "<br>" +
-                                ""
-                                    "</p>" +
-                                    "</div>";
-                        $("body").append(html);
-                    });
-                })
-        )
-   
-    </script>
-    </body>
-</html>
-
-<html data-cloud9-id="1"><head></head><body data-cloud9-id="3"><doctype data-cloud9-id="5" html="">
-
-
-        <script data-cloud9-id="6" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-        </script>
-                <script data-cloud9-id="7">
-            $(document).ready(function() {
-                $("button").click(function() {
-                    $.ajax({
-                        url: "https://data.cityofchicago.org/resource/9rg7-mz9y.json",
-                        success: function(result) {
-                            console.log(result);
-                            var output;
-                            
-                            $.each(result, function(index, value){
-                                
-                                //output += "<div class='output'> -Latitude: " + value.latitude + " &  longitude: " + value.longitude + "</div>";
-                                output += [value.latitude, value.longitude];
-                                //$("#results").append(output); 
-                                
-                                var locations = [];
-                                locations.push(output);
-                            });
-                            //$("#results").html(output);
-                        }
-                    })
-                });
-            });
-        </script>
-       
-        <style data-cloud9-id="8">
-            
-            p {
-                font-size: 20px;
-                margin-left: 24px;
-                margin-right: 24px;
-            }
-
-        </style>
-
-    <div  id="div1">
-        <center>
-            <h1>
-                Chicago Police stations
-            </h2>
-        </center>
-    </div1>
-
-    <div class = "col-md-12">
-        <center>
-            <p>
-                A list of all the police stations in chicago.    
-            </p>
-        </center>
-    </div>
-  <button >Stations</button>
-    <div id="results" id="table">
-    </div>
-        
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Custom Markers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
     <style>
-        #map {
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
             width: 100%;
             height: 400px;
         }
-    </style>
-    
-    <h3>My Google Maps Demo</h3>
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 1px;
+        padding: 2px;
+      }
+      div { 
+        border:1px;
+        margin:4px;
+        border-radius:5px;
+      }
+        </style>
+  </head>
+  <body>
     <div id="map"></div>
     <script>
-        function initMap() {
-            var uluru = {lat: 42.8781, lng: -87.6298};
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 4,
-                center: uluru
-            });
-            var marker = new google.maps.Marker({
-                position: uluru,
-                map: map
-            });
-            
-        var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        
-        var markers = locations.map(function(location, i) {
-            return new google.maps.Marker({
-                position: location,
-                label: labels[i % labels.length]
-            });
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: new google.maps.LatLng(41.9118110912, -87.6705601801),
+          mapTypeId: 'roadmap'
         });
-        var markerCluster = new MarkerClusterer(map, markers,
-        {imagePath: 'https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclusterer/images/m5.png'});
-        }
-       
-        //var locations = [];
-        //locations.push(output);
-        //var x = value.latitude[s];
-       // var y = value.longitude[t];
-       // for(var z = 0; z< locations.length; z++){
-       //     locations[z].push(x,y);
-       //     s++;
-       //     t++;
-        //}
-        
 
-        </script>
-        <script src="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclusterer/src/markerclusterer.js"></script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrREzEwfQ59pVTyDDecUcHOcD69FGwdVU&callback=initMap"></script>
+        var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+        var icons = {
+          parking: {
+            icon: iconBase + 'parking_lot.png'
+          },
+          
+        };
+
+        var features = [
+          {
+            position: new google.maps.LatLng(41.9211033246, -87.6974518223),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(41.9660534171,  -87.728114561),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng( 41.9740944511, -87.7661488432),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(41.9795495131, -87.6928445094),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng( 41.9997634842, -87.6713242922),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng( 41.9186088912,  -87.765574479),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng( 41.6914347795, -87.6685203937),
+            type: 'parking'
+          }, {
+            position: new google.maps.LatLng(41.6927233639, -87.6045058667),
+            type: 'parking'
+          },{
+            position: new google.maps.LatLng(41.7079332906, -87.5683491228),
+            type: 'parking'
+          },{
+            position: new google.maps.LatLng(41.7521368378, -87.6442289066),
+            type: 'parking'
+          },{
+            position: new google.maps.LatLng(41.7664308925, -87.6057478606),
+            type: 'parking'
+          },{
+            position: new google.maps.LatLng(41.778987189, -87.7088638153),
+            type: 'parking'
+          },{
+            position: new google.maps.LatLng(41.7796315359, -87.6608870173),
+            type: 'parking'
+          },{
+            position: new google.maps.LatLng(41.8018110912, -87.6305601801),
+            type: 'parking'
+          },{
+            position: new google.maps.LatLng(41.8307016873, -87.6233953459),
+            type: 'parking'
+          },{
+            position: new google.maps.LatLng(41.8583725929, -87.627356171),
+            type: 'parking'
+          },{
+            position: new google.maps.LatLng(41.8629766244, -87.6569725149),
+            type: 'parking'
+          },{
+            position: new google.maps.LatLng(41.8566845327, -87.708381958),
+            type: 'parking'
+          },{
+            position: new google.maps.LatLng(41.8800834614, -87.768199889),
+            type: 'parking'
+          },{
+            position: new google.maps.LatLng(41.8735822883, -87.705488126),
+            type: 'parking'
+          },{
+            position: new google.maps.LatLng(41.9474004564, -87.651512018),
+            type: 'parking'
+          },{
+            position: new google.maps.LatLng(41.9032416531, -87.6433521393),
+            type: 'parking'
+          },{
+            position: new google.maps.LatLng(41.8373944311, -87.6464077068),
+            type: 'parking'
+          },
+        ];
+
+        // Create markers.
+        features.forEach(function(feature) {
+          var marker = new google.maps.Marker({
+            position: feature.position,
+            icon: icons[feature.type].icon,
+            map: map
+          });
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap">
+    </script>
+  </body>
+</html>
