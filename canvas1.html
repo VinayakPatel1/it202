@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Canvas Text Example</title>
+  <style>
+  
+    canvas {
+      border: #A9A9A9 2px solid;
+    }
+    
+   
+    
+  </style>
+
+</head>
+ 
+<body>
+  <canvas id="myCanvas" width=400px" height="400px"></canvas>
+ 
+  <script>
+  
+  
+ var canvas = document.querySelector("#myCanvas");
+var context = canvas.getContext("2d");
+ 
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+
+
+// line
+context.moveTo(79, 100);
+context.lineTo(115, 200);
+// line
+context.moveTo(94, 100);
+context.lineTo(123, 185);
+
+
+ //circle
+context.stroke();
+ ctx.beginPath();
+ctx.arc(87, 101, 7.5, 3 , 2 * Math.PI);
+
+
+//line horizontal
+context.moveTo(115 ,200);
+context.lineTo(130, 200);
+
+//lines 
+context.moveTo(150, 100);
+context.lineTo(123, 185);
+context.moveTo(165, 100);
+context.lineTo(130, 200);
+
+ //circle
+context.stroke();
+ ctx.beginPath();
+ctx.arc(158, 100, 7.5, 3 , 2 * Math.PI);
+
+//line horizontal
+context.moveTo(221 ,200);
+context.lineTo(206, 200);
+
+//line horizontal
+context.moveTo(206 ,100);
+context.lineTo(206, 200);
+
+//line horizontal
+context.moveTo(221 ,157);
+context.lineTo(221, 200);
+
+
+//line horizontal "P"
+context.moveTo(260 ,157);
+context.lineTo(221, 157);
+
+//line horizontal
+context.moveTo(260 ,100);
+context.lineTo(205, 100);
+
+//line horizontal
+context.moveTo(221 ,147);
+context.lineTo(221, 110);
+
+//line horizontal
+context.moveTo(221 ,110);
+context.lineTo(256, 110);
+
+//line horizontal
+context.moveTo(221 ,147);
+context.lineTo(256, 147);
+ctx.stroke();
+
+
+ctx.beginPath();
+ctx.arc(250, 128.6, 19.4, 5,2.4  * Math.PI);
+ctx.stroke();
+ctx.beginPath();
+ctx.arc(251, 128.5, 30, 5,2.4  * Math.PI);
+ctx.stroke();
+
+
+ctx.beginPath();
+ctx.arc(175, 194, 9, 0, 2 * Math.PI);
+ctx.stroke();
+
+  </script>
+  
+ 
+</body>
+ 
+</html>
