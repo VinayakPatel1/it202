@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+
+</span>
+<body style="background-color:#00bcd4;">
+<center>
+<h1 style="color: #000000; background-color: #03a9f4" ><u> Vinayak Patel</u></h1>
+<h3 style="color: #000000; background-color: #03a9f4"><i>Period:1</i></h3>
+</center>
+<hr size="3" color=black>
+
+<figure></figure>
+<img src="https://images-na.ssl-images-amazon.com/images/I/51yR6j0Fz5L._SX348_BO1,204,203,200_.jpg" alt="Favorite novel" style="width:160px;height:205px;">
+<p> This book is one of the best book I have read. It's about how a couple of kids are in a chool hiding from a viruse that is spreading around the school. Later a helicopter comes and rescues them. </P>
+
+<hr size="3" color=black>
+
+
+
+
+
+
+<button ><a href="https://vinayakpatel1.github.io/webdev1718aboutme/Html/about%20me.html">Click Me</a></button>
+
+
+
+
+
+
+<div class="card" style="width: 20rem;">
+  <img class="Famous person" src="https://pbs.twimg.com/profile_images/822547732376207360/5g0FC8XX_400x400.jpg" alt="Obama">
+  <div class="card-block">
+    <h4 class="card-title">Barack Obama</h4>
+    <p class="card-text">He became the 44th president of the United States. He was one of the coolest and funniest president America ever had. He implemented Obama care that got him recoginition.</p>
+    <a href="https://en.wikipedia.org/wiki/Barack_Obama" class="btn btn-primary">His Wiki Page</a></button>
+  </div>
+</div>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Carousel Example</h2>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+      <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+
+      <div class="item active">
+        <img src="http://i0.kym-cdn.com/entries/icons/original/000/017/457/mcdonalds1.jpg" alt="Los Angeles" style="width:100%;">
+        <div class="carousel-caption">
+          <h3>Mcdonalds</h3>
+          <p size="6">Sometimes the best place to eat</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="http://www.subway.com/~/media/base_english/images/branding/subway_logo_og.png" alt="Chicago" style="width:100%;">
+        <div class="carousel-caption">
+          <h3>Subway</h3>
+          <p>Best place to get subs</p>
+        </div>
+      </div>
+    
+      <div class="item">
+        <img src="https://cdn.windowsreport.com/wp-content/uploads/2017/12/Window-phones.jpg" alt="New York" style="width:100%;">
+        <div class="carousel-caption">
+          <h3>Starbucks</h3>
+          <p>Best place to get coffee and chill</p>
+        </div>
+      </div>
+  
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
+<hr size="6" >
+
+
+
+        <script data-cloud9-id="6" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+        </script>
+                <script data-cloud9-id="7">
+            $(document).ready(function() {
+                $("button").click(function() {
+                    $.ajax({
+                        url: "https://data.cityofchicago.org/resource/tt4n-kn4t.json",
+                        success: function(result) {
+                            console.log(result);
+                            var output = "";
+                            
+                            $.each(result, function(index, value){
+                                
+                                output += "<div class='output'> -" + value.department + " as a  " + value.job_titles+"   " + "With a yearly salary of $" + value.annual_salary +"   as   "+ value.full_or_part_time
+ +"</div>";
+                                
+                                $("#results").append(output); 
+                            
+                            });
+                            //$("#results").html(output);
+                        }
+                    })
+                });
+            });
+        </script>
+            </div>
+  <button id=9 >Events</button>
+    
+        <div id="results" id="table">
+        </div>
+        
+
+
+
+</body>
+
+
+
+</html>
+
