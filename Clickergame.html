@@ -1,0 +1,103 @@
+<html><head></head><body>
+        <canvas  onclick="myFunction(event)" id="myCanvas" width="700" height="700" style="border:1px solid #000000;" ></canvas>
+        <br>
+        <button onclick="location.reload()">Restart</button>
+    
+    
+        <script>
+        
+        //Image var
+        var imageObj2 = new Image();
+        
+        //background
+         var imageObj = new Image();
+
+      imageObj.onload = function() {
+        ctx.drawImage(imageObj, 0,35);
+      };
+      imageObj.src = 'https://pre00.deviantart.net/b92d/th/pre/i/2012/324/9/8/seamless_dirt_texture_by_o_o_o_o_0_o_o_o_o-d5ll00w.jpg';
+        
+        
+        
+        
+        
+        
+        
+        
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+            var score=0;
+            var lives=5;
+            var randx=200;
+            var randy=300;
+            ctx.textAlign="center";
+            ctx.font="30px Arial";
+            ctx.fillText("Lives: "+lives, 60, 30);
+            ctx.fillText("Score: "+score, 630, 30);
+            //SHAPE AS Image 
+                  imageObj.onload = function() {
+        ctx.drawImage(imageObj, 0,35);
+      };
+      imageObj.src = 'https://pre00.deviantart.net/b92d/th/pre/i/2012/324/9/8/seamless_dirt_texture_by_o_o_o_o_0_o_o_o_o-d5ll00w.jpg';
+        
+        
+            
+          imageObj2.onload = function() {
+        ctx.drawImage(imageObj2, randx, randy);
+      };
+      imageObj2.src = "https://aliceinwonderbook.files.wordpress.com/2015/06/cartoon-mole_f.png?w=748";
+      
+
+            function myFunction(event){
+                var xpos=event.clientX;
+                var ypos=event.clientY;
+                if (xpos>=randx && xpos<=randx+300 && ypos>=randy && ypos<=randy+300){
+                    ctx.clearRect(0, 0, 700, 700);
+                    score++;
+                    ctx.fillText("Score: "+score, 630, 30);
+                    ctx.fillText("Lives: "+lives, 60, 30);
+                    randx=Math.random()*450;
+                    randy=Math.random()*450;
+                    
+                          imageObj.onload = function() {
+        ctx.drawImage(imageObj, 0,35);
+      };
+      imageObj.src = 'https://pre00.deviantart.net/b92d/th/pre/i/2012/324/9/8/seamless_dirt_texture_by_o_o_o_o_0_o_o_o_o-d5ll00w.jpg';
+        
+        
+                   imageObj2.onload = function() {
+                       
+                       
+        ctx.drawImage(imageObj2, randx, randy);
+      };
+      imageObj2.src = "https://aliceinwonderbook.files.wordpress.com/2015/06/cartoon-mole_f.png?w=748";
+                } else {
+                    ctx.clearRect(0, 0, 700, 700);
+                    lives--;
+                    ctx.fillText("Score: "+score, 630, 30);
+                    ctx.fillText("Lives: "+lives, 60, 30);
+                    randx=Math.random()*450;
+                    randy=Math.random()*450;
+                          imageObj.onload = function() {
+        ctx.drawImage(imageObj, 0,35);
+      };
+      imageObj.src = 'https://pre00.deviantart.net/b92d/th/pre/i/2012/324/9/8/seamless_dirt_texture_by_o_o_o_o_0_o_o_o_o-d5ll00w.jpg';
+        
+        
+                    imageObj2.onload = function() {
+        ctx.drawImage(imageObj2, randx, randy);
+      };
+      imageObj2.src = "https://aliceinwonderbook.files.wordpress.com/2015/06/cartoon-mole_f.png?w=748";
+                    if (lives==0){
+                        alert("Game Over");
+                        location.reload();
+                    }
+                }
+                if (score==25){
+                    alert("You won!");
+                    location.reload();
+                }
+            }
+        </script>
+    
+</body></html>
